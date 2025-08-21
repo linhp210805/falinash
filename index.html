@@ -3,96 +3,88 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>TH noodles – Bún Bò Huế</title>
-  <meta name="description" content="TH noodles - Bún bò Huế chuẩn vị. Đặt món online, giao nhanh." />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <title>Gà Rán 101 – Các Loại Phổ Biến</title>
+  <meta name="description" content="Tổng hợp các loại gà rán phổ biến: hương vị, đặc trưng, nguồn gốc và gợi ý ăn kèm." />
   <style>
     :root{
-      --blue:#1f6feb;        /* xanh dương chủ đạo */
-      --blue-2:#0b3d91;      /* xanh đậm */
-      --bg:#0a0f1a;
+      --bg:#0b0f16;
       --card:#111827;
       --text:#e5e7eb;
       --muted:#9ca3af;
-      --ok:#22c55e;
-      --warn:#f59e0b;
-      --danger:#ef4444;
+      --accent:#ffb703;      /* vàng mật ong */
+      --accent-2:#fb8500;    /* cam giòn rụm */
+      --green:#22c55e;
       --radius:16px;
-      --shadow:0 10px 30px rgba(0,0,0,.25);
+      --shadow:0 12px 28px rgba(0,0,0,.28);
     }
     *{box-sizing:border-box}
-    html,body{margin:0;background:#0b1220;color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+    html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
     a{color:#9cc1ff;text-decoration:none}
-    header{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter:saturate(140%) blur(6px);
-      background:linear-gradient(180deg, rgba(10,15,26,.9), rgba(10,15,26,.6));
-      border-bottom:1px solid rgba(255,255,255,.06)
-    }
     .container{max-width:1100px;margin:auto;padding:0 16px}
+    header{
+      position:sticky;top:0;z-index:50;
+      background:linear-gradient(180deg,rgba(11,15,22,.95),rgba(11,15,22,.6));
+      border-bottom:1px solid rgba(255,255,255,.06);
+      backdrop-filter:saturate(140%) blur(6px);
+    }
     .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-    .brand{display:flex;gap:10px;align-items:center}
+    .brand{display:flex;gap:12px;align-items:center}
     .logo{
-      width:42px;height:42px;border-radius:50%;
-      background:radial-gradient(120px 120px at 30% 30%, #61a0ff, #1f6feb 60%, #0b3d91);
+      width:44px;height:44px;border-radius:50%;
+      background:conic-gradient(from 20deg,#ffd166,#ffb703,#fb8500,#ffd166);
       box-shadow:0 0 0 3px rgba(255,255,255,.05), var(--shadow)
     }
-    .brand h1{font-size:20px;margin:0;font-weight:800;letter-spacing:.4px}
+    .brand h1{margin:0;font-size:20px;font-weight:800;letter-spacing:.3px}
     .menu a{margin-left:18px;font-weight:600;opacity:.9}
-    .hero{
-      display:grid;grid-template-columns:1.2fr .8fr;gap:28px;
-      padding:40px 0 28px
-    }
+    .hero{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;padding:28px 0}
     .card{
-      background:linear-gradient(180deg,#0f172a,#0b1220);
+      background:linear-gradient(180deg,#0f172a,#0c1321);
       border:1px solid rgba(255,255,255,.06);
       border-radius:var(--radius); box-shadow:var(--shadow)
     }
-    .hero .left{padding:26px}
-    .title{font-size:38px;line-height:1.1;margin:0 0 10px}
-    .subtitle{color:var(--muted);margin:0 0 18px}
-    .badges{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 18px}
-    .badge{padding:8px 12px;border-radius:999px;background:#0b1a34;border:1px solid rgba(255,255,255,.08);font-size:13px}
-    .cta{display:flex;gap:12px;flex-wrap:wrap}
-    .btn{
-      appearance:none;border:0;cursor:pointer;font-weight:700;
-      padding:12px 18px;border-radius:12px
-    }
-    .btn.primary{background:linear-gradient(180deg,var(--blue),var(--blue-2));color:white;box-shadow:0 8px 18px rgba(31,111,235,.35)}
+    .hero .left{padding:24px}
+    .title{font-size:36px;line-height:1.15;margin:0 0 10px}
+    .subtitle{color:var(--muted);margin:0 0 16px}
+    .badges{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0 18px}
+    .badge{padding:8px 12px;border-radius:999px;background:#0c1a2f;border:1px solid rgba(255,255,255,.08);font-size:13px}
+    .cta .btn{appearance:none;border:0;cursor:pointer;font-weight:800;padding:12px 16px;border-radius:12px}
+    .btn.primary{background:linear-gradient(180deg,var(--accent),var(--accent-2));color:#1a1307;box-shadow:0 8px 18px rgba(251,133,0,.35)}
     .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.12);color:var(--text)}
-    .hero .right{
-      display:grid;grid-template-rows:180px 1fr;gap:14px
-    }
-    .info, .open{
-      padding:16px 18px
-    }
-    .info h3,.open h3{margin:0 0 10px}
-    .row{display:flex;gap:10px;align-items:center;margin:6px 0;color:#c7d2fe}
-    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-    section{padding:26px 0}
+    .hero .right{padding:16px 18px}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .row{display:flex;gap:10px;align-items:center;color:#fef3c7}
+    section{padding:24px 0}
     h2{margin:0 0 12px;font-size:26px}
-    .items{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .item{background:linear-gradient(180deg,#0f172a,#0b1220);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:8px}
-    .item .name{font-weight:700}
-    .item .desc{color:var(--muted);font-size:14px}
-    .item .price{font-weight:800}
-    .item button{margin-top:auto}
-    .order{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
-    .table{width:100%;border-collapse:collapse}
-    .table th,.table td{padding:10px;border-bottom:1px dashed rgba(255,255,255,.08);text-align:left}
-    .sum{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
-    .field{display:flex;flex-direction:column;gap:6px;margin:10px 0}
-    input,select,textarea{
-      background:#0b1220;border:1px solid rgba(255,255,255,.1);color:var(--text);
-      padding:12px;border-radius:10px;outline:none
+    .note{color:var(--muted);font-size:14px}
+    .panel{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}
+    .filters{padding:14px}
+    .search{display:flex;gap:10px;align-items:center;margin-bottom:10px}
+    input[type="text"]{
+      width:100%;padding:12px;border-radius:12px;background:#0b1220;border:1px solid rgba(255,255,255,.1);color:var(--text)
     }
-    footer{padding:24px 0;color:#9aa5b1}
-    .note{font-size:13px;color:var(--muted)}
+    .chips{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{display:inline-flex;gap:6px;align-items:center;padding:8px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:#0c1321;font-size:13px;cursor:pointer}
+    .chip input{accent-color:var(--accent)}
+    .items{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .item{display:flex;flex-direction:column;gap:10px;padding:14px;border-radius:14px;background:linear-gradient(180deg,#0f172a,#0b1220);border:1px solid rgba(255,255,255,.06)}
+    .thumb{
+      height:120px;border-radius:12px;background:
+        radial-gradient(220px 100px at 20% 30%,rgba(255,183,3,.45),transparent 60%),
+        radial-gradient(220px 100px at 80% 70%,rgba(251,133,0,.35),transparent 60%),
+        #0c1321;
+      display:flex;align-items:center;justify-content:center;font-size:40px
+    }
+    .name{font-weight:800}
+    .meta{display:flex;gap:8px;flex-wrap:wrap}
+    .pill{font-size:12px;padding:6px 8px;border-radius:999px;background:#0b1a34;border:1px solid rgba(255,255,255,.08)}
+    .desc{color:var(--muted);font-size:14px}
+    .pair{font-size:13px;color:#c7d2fe}
+    .spice{font-size:13px}
+    footer{padding:26px 0;color:#9aa5b1}
     @media (max-width:960px){
       .hero{grid-template-columns:1fr}
+      .panel{grid-template-columns:1fr}
       .items{grid-template-columns:repeat(2,1fr)}
-      .order{grid-template-columns:1fr}
     }
     @media (max-width:640px){
       .items{grid-template-columns:1fr}
@@ -106,12 +98,12 @@
     <div class="container nav">
       <div class="brand">
         <div class="logo" aria-hidden="true"></div>
-        <h1>TH noodles · Bún Bò Huế</h1>
+        <h1>Gà Rán 101</h1>
       </div>
       <nav class="menu">
-        <a href="#menu">Thực đơn</a>
-        <a href="#order">Đặt món</a>
-        <a href="#contact">Liên hệ</a>
+        <a href="#types">Các loại</a>
+        <a href="#tips">Mẹo</a>
+        <a href="#faq">FAQ</a>
       </nav>
     </div>
   </header>
@@ -120,256 +112,189 @@
     <!-- Hero -->
     <section class="hero">
       <div class="left card">
-        <h2 class="title">Bún Bò Huế chuẩn vị · nóng hổi mỗi ngày</h2>
-        <p class="subtitle">Nước dùng đậm đà, bò mềm – giò thơm. TH noodles phục vụ tại quán & giao tận nơi.</p>
+        <h2 class="title">Các loại gà rán phổ biến · hương vị & cách thưởng thức</h2>
+        <p class="subtitle">Từ giòn xù kiểu Mỹ đến sốt Yangnyeom Hàn Quốc – xem đặc trưng, độ cay, gợi ý ăn kèm cho từng loại.</p>
         <div class="badges">
-          <span class="badge">🌶️ Topping đa dạng</span>
-          <span class="badge">🕘 Mở cửa: 6:00 – 21:00</span>
-          <span class="badge">🚚 Giao nhanh trong 5km</span>
+          <span class="badge">🍗 Thịt mềm – vỏ giòn</span>
+          <span class="badge">🌶️ Nhiều cấp độ cay</span>
+          <span class="badge">🍯 Sốt đa dạng</span>
         </div>
         <div class="cta">
-          <a class="btn primary" href="#order">Đặt bún ngay</a>
-          <a class="btn ghost" href="#menu">Xem thực đơn</a>
+          <a class="btn primary" href="#types">Khám phá ngay</a>
+          <a class="btn ghost" href="#faq">Câu hỏi thường gặp</a>
         </div>
       </div>
-
-      <div class="right">
-        <div class="info card">
-          <h3>Giới thiệu quán</h3>
-          <div class="grid">
-            <div>
-              <div class="row">🏪 <strong>TH noodles</strong></div>
-              <div class="row">📍 <span id="cfg-address">45 Nguyễn Văn A, Q. Hải Châu, Đà Nẵng</span></div>
-              <div class="row">📞 <a id="cfg-phone-link" href="tel:0900000000"><span id="cfg-phone">0900 000 000</span></a></div>
-            </div>
-            <div>
-              <div class="row">✉️ <a id="cfg-email" href="mailto:orders@thnoodles.vn">orders@thnoodles.vn</a></div>
-              <div class="row">🌐 <a href="#">facebook.com/thnoodles</a></div>
-              <div class="row">🧾 Hóa đơn VAT (nếu cần)</div>
-            </div>
-          </div>
-        </div>
-        <div class="open card">
-          <h3>Giờ mở cửa</h3>
-          <div class="grid">
-            <div>
-              <div class="row">Thứ 2 – CN</div>
-              <div class="row">06:00 – 21:00</div>
-            </div>
-            <div>
-              <div class="row">Khu vực giao</div>
-              <div class="row">≤ 5km (phí từ 10k)</div>
-            </div>
-          </div>
+      <div class="right card">
+        <h3 style="margin:0 0 10px">Thông tin nhanh</h3>
+        <div class="grid">
+          <div class="row">🫙 Dầu chiên: 170–180°C</div>
+          <div class="row">⏱️ Thời gian: 8–12 phút (miếng vừa)</div>
+          <div class="row">🥣 Bột áo: bột mì/bột bắp/panko</div>
+          <div class="row">🧂 Nêm: tỏi, tiêu, ớt bột, paprika</div>
         </div>
       </div>
     </section>
 
-    <!-- Menu -->
-    <section id="menu">
-      <h2>Thực đơn</h2>
-      <p class="note">Giá đã bao gồm rau sống & chanh ớt. Có thể chọn mức cay khi đặt.</p>
-      <div class="items" id="menu-list">
-        <!-- Items render bằng JS -->
-      </div>
-    </section>
+    <!-- Types + Filters -->
+    <section id="types">
+      <h2>Các loại gà rán</h2>
+      <p class="note">Dùng ô tìm kiếm hoặc bật các bộ lọc để thu hẹp kết quả.</p>
 
-    <!-- Order -->
-    <section id="order">
-      <h2>Đặt món online</h2>
-      <div class="order">
-        <!-- Cart -->
-        <div class="card" style="padding:16px">
-          <h3>Giỏ hàng</h3>
-          <table class="table" id="cart-table">
-            <thead>
-              <tr><th>Món</th><th>Số lượng</th><th>Giá</th><th>Tạm tính</th><th></th></tr>
-            </thead>
-            <tbody id="cart-body">
-              <tr><td colspan="5" class="note">Chưa có món nào. Hãy chọn từ thực đơn.</td></tr>
-            </tbody>
-          </table>
-          <div class="sum">
-            <strong>Tổng cộng:</strong>
-            <strong id="grand">0₫</strong>
+      <div class="panel">
+        <!-- Filters -->
+        <div class="card filters">
+          <div class="search">
+            <input id="q" type="text" placeholder="Tìm theo tên/hương vị (vd: Hàn, cay, tỏi...)">
+          </div>
+          <div class="chips">
+            <label class="chip"><input type="checkbox" value="cay"> Cay 🌶️</label>
+            <label class="chip"><input type="checkbox" value="gionxu"> Giòn xù</label>
+            <label class="chip"><input type="checkbox" value="sot"> Có sốt</label>
+            <label class="chip"><input type="checkbox" value="hanquoc"> Hàn Quốc</label>
+            <label class="chip"><input type="checkbox" value="nhat"> Nhật</label>
+            <label class="chip"><input type="checkbox" value="dailoan"> Đài Loan</label>
+            <label class="chip"><input type="checkbox" value="canh"> Cánh gà</label>
+            <label class="chip"><input type="checkbox" value="khongxuong"> Không xương</label>
           </div>
         </div>
 
-        <!-- Info -->
-        <form class="card" id="order-form" style="padding:16px">
-          <h3>Thông tin người đặt</h3>
-          <div class="field">
-            <label>Họ tên *</label>
-            <input required name="name" placeholder="Nguyễn Văn B">
-          </div>
-          <div class="field">
-            <label>Số điện thoại *</label>
-            <input required name="phone" placeholder="090..." pattern="[0-9\s+]{8,13}">
-          </div>
-          <div class="field">
-            <label>Hình thức nhận *</label>
-            <select name="method" required>
-              <option value="pickup">Đến lấy tại quán</option>
-              <option value="delivery">Giao tận nơi</option>
-            </select>
-          </div>
-          <div class="field" id="address-field" style="display:none">
-            <label>Địa chỉ giao</label>
-            <input name="address" placeholder="Số nhà, đường, quận...">
-          </div>
-          <div class="field">
-            <label>Ghi chú thêm</label>
-            <textarea name="note" rows="3" placeholder="Ít cay / Không hành / Giao giờ nghỉ trưa ..."></textarea>
-          </div>
-          <button class="btn primary" type="submit">Gửi đơn đặt</button>
-          <div class="note" style="margin-top:8px">Sau khi gửi, cửa hàng sẽ gọi xác nhận đơn.</div>
-        </form>
+        <!-- List -->
+        <div class="items" id="list">
+          <!-- Render bằng JS -->
+        </div>
       </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact">
-      <h2>Liên hệ nhanh</h2>
-      <div class="grid">
-        <a class="btn ghost" href="tel:0900000000">📞 Gọi: 0900 000 000</a>
-        <a class="btn ghost" href="https://zalo.me/" target="_blank" rel="noopener">💬 Nhắn Zalo</a>
-        <a class="btn ghost" href="mailto:orders@thnoodles.vn">✉️ Email: orders@thnoodles.vn</a>
-        <a class="btn ghost" href="#menu">📋 Xem thực đơn</a>
-      </div>
+    <!-- Tips -->
+    <section id="tips">
+      <h2>Mẹo thưởng thức & bảo quản</h2>
+      <ul class="note">
+        <li>Để giòn lâu: áo bột 2 lớp (ướt → khô), chiên hai lần ở 170°C rồi 185°C.</li>
+        <li>Rưới sốt ngay trước khi ăn để giữ vỏ giòn.</li>
+        <li>Hâm nóng bằng nồi chiên không dầu 180°C trong 4–6 phút, tránh lò vi sóng làm mềm vỏ.</li>
+      </ul>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <h2>FAQ – Câu hỏi thường gặp</h2>
+      <p class="note"><strong>Gà rán giòn xù khác truyền thống?</strong> – Giòn xù dùng bột hạt to (panko/bột bắp), vỏ dày & rộp hơn.</p>
+      <p class="note"><strong>Yangnyeom có cay không?</strong> – Thường cay nhẹ–vừa (tùy ớt Gochujang). Có thể xin mức ít cay.</p>
+      <p class="note"><strong>Karaage có sốt?</strong> – Thường ăn kèm chanh/mayo; không tẩm sốt sẵn.</p>
     </section>
   </main>
 
   <footer>
-    <div class="container">
-      © <span id="year"></span> TH noodles · Made with 💙
-    </div>
+    <div class="container">© <span id="year"></span> Gà Rán 101 · Made with 🍯🔥</div>
   </footer>
 
   <script>
-    // ====== Cấu hình quán (thay cho đúng của bạn) ======
-    const CONFIG = {
-      shopName: "TH noodles",
-      phone: "0900 000 000",
-      email: "orders@thnoodles.vn",     // Email nhận đơn (dùng mailto)
-      address: "45 Nguyễn Văn A, Q. Hải Châu, Đà Nẵng",
-      menu: [
-        { id: "bbh-nho",  name: "Bún bò Huế (Tô nhỏ)",  desc:"Thịt bò nạm + chả",  price: 35000 },
-        { id: "bbh-vua",  name: "Bún bò Huế (Tô vừa)",  desc:"Bò nạm + chả + giò", price: 45000 },
-        { id: "bbh-dac",  name: "Bún bò Huế đặc biệt",   desc:"Bắp bò + giò heo",   price: 55000 },
-        { id: "cha",      name: "Chả Huế",               desc:"Chả lát thêm",       price: 10000 },
-        { id: "huyet",    name: "Huyết",                 desc:"Thêm topping",       price: 5000  },
-        { id: "tra-da",   name: "Trà đá",                desc:"Ly mát lạnh",        price: 3000  },
-      ]
-    };
+    // ====== Dữ liệu các loại gà rán ======
+    const DATA = [
+      {
+        id:'original', icon:'🍗', name:'Truyền thống (Original)',
+        desc:'Ướp muối tiêu, tỏi; áo bột mỏng; vị cân bằng, dễ ăn.',
+        origin:'Mỹ', spice:1, pair:'Khoai tây nghiền, salad bắp',
+        tags:['gionvua']
+      },
+      {
+        id:'extra', icon:'🥨', name:'Giòn xù (Extra Crispy)',
+        desc:'Áo bột hạt to/panko, chiên hai lần cho độ giòn rộp.',
+        origin:'Mỹ', spice:1, pair:'Sốt mayo tỏi, dưa chua',
+        tags:['gionxu']
+      },
+      {
+        id:'spicy', icon:'🌶️', name:'Cay (Spicy)',
+        desc:'Tẩm ớt bột, paprika, tiêu; hậu vị cay ấm.',
+        origin:'Mỹ', spice:3, pair:'Sốt ranch/blue cheese',
+        tags:['cay','gionvua']
+      },
+      {
+        id:'buffalo', icon:'🪽', name:'Cánh gà Buffalo',
+        desc:'Cánh chiên sốt bơ–giấm–ớt cay đặc trưng kiểu Mỹ.',
+        origin:'Buffalo (Mỹ)', spice:3, pair:'Cần tây + blue cheese',
+        tags:['cay','sot','canh']
+      },
+      {
+        id:'yangnyeom', icon:'🍯', name:'Hàn – Yangnyeom',
+        desc:'Sốt ngọt–cay (gochujang, tỏi, mật ong). Áo đều bên ngoài.',
+        origin:'Hàn Quốc', spice:2, pair:'Củ cải muối, bia lạnh',
+        tags:['hanquoc','sot']
+      },
+      {
+        id:'soygarlic', icon:'🧄', name:'Hàn – Tỏi Xì Dầu',
+        desc:'Sốt tỏi, xì dầu, mật ong; ít cay, thơm đậm đà.',
+        origin:'Hàn Quốc', spice:1, pair:'Củ cải muối, khoai tây chiên',
+        tags:['hanquoc','sot']
+      },
+      {
+        id:'karaage', icon:'🥢', name:'Nhật – Karaage',
+        desc:'Ướp xì dầu–gừng–tỏi; áo bột khoai tây; giòn nhẹ, mọng.',
+        origin:'Nhật', spice:0, pair:'Chanh, mayo Kewpie',
+        tags:['nhat','khongxuong']
+      },
+      {
+        id:'taiwan', icon:'🧋', name:'Đài Loan – Popcorn',
+        desc:'Miếng nhỏ không xương, áo bột tiêu Tứ Xuyên; giòn vui miệng.',
+        origin:'Đài Loan', spice:2, pair:'Trà sữa, húng quế chiên',
+        tags:['dailoan','khongxuong','gionxu']
+      },
+      {
+        id:'nashville', icon:'🔥', name:'Nashville Hot',
+        desc:'Chiên xong nhúng dầu ớt cay nồng; vị đậm, hậu “cháy lưỡi”.',
+        origin:'Mỹ', spice:4, pair:'Bánh mì mềm, dưa leo chua',
+        tags:['cay','sot','gionvua']
+      }
+    ];
 
-    // ====== Render thông tin ======
-    document.getElementById('cfg-address').textContent = CONFIG.address;
-    document.getElementById('cfg-phone').textContent   = CONFIG.phone;
-    document.getElementById('cfg-phone-link').href     = 'tel:' + CONFIG.phone.replace(/\s/g,'');
-    const emailEl = document.getElementById('cfg-email');
-    if(emailEl){ emailEl.textContent = CONFIG.email; emailEl.href = 'mailto:'+CONFIG.email; }
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // ====== Render menu ======
-    const fmt = n => n.toLocaleString('vi-VN')+'₫';
-    const list = document.getElementById('menu-list');
-    CONFIG.menu.forEach(m=>{
-      const div = document.createElement('div');
-      div.className = 'item';
-      div.innerHTML = `
-        <div class="name">${m.name}</div>
-        <div class="desc">${m.desc}</div>
-        <div class="price">${fmt(m.price)}</div>
-        <button class="btn primary" data-add="${m.id}">+ Thêm</button>
-      `;
-      list.appendChild(div);
-    });
-
-    // ====== Giỏ hàng ======
-    const cart = {};
-    function redrawCart(){
-      const body = document.getElementById('cart-body');
-      body.innerHTML = '';
-      const entries = Object.entries(cart);
-      if(!entries.length){
-        body.innerHTML = '<tr><td colspan="5" class="note">Chưa có món nào. Hãy chọn từ thực đơn.</td></tr>';
-        document.getElementById('grand').textContent = fmt(0);
+    // ====== Render danh sách ======
+    const list = document.getElementById('list');
+    const fmtSpice = n => 'Độ cay: ' + '🌶️'.repeat(n || 0) + (n===0? ' Không cay':'');
+    function render(items){
+      list.innerHTML = '';
+      if(!items.length){
+        list.innerHTML = '<div class="note">Không tìm thấy kết quả phù hợp. Hãy thử từ khóa khác hoặc bỏ bớt bộ lọc.</div>';
         return;
       }
-      let sum = 0;
-      entries.forEach(([id,qty])=>{
-        const item = CONFIG.menu.find(x=>x.id===id);
-        const row = document.createElement('tr');
-        const sub = item.price*qty; sum+=sub;
-        row.innerHTML = `
-          <td>${item.name}</td>
-          <td>
-            <button class="btn ghost" data-dec="${id}">–</button>
-            <span style="display:inline-block;min-width:26px;text-align:center">${qty}</span>
-            <button class="btn ghost" data-inc="${id}">+</button>
-          </td>
-          <td>${fmt(item.price)}</td>
-          <td>${fmt(sub)}</td>
-          <td><button class="btn ghost" data-del="${id}">✕</button></td>
+      items.forEach(m=>{
+        const el = document.createElement('div');
+        el.className='item';
+        el.setAttribute('data-tags', (m.tags||[]).join(','));
+        el.innerHTML = `
+          <div class="thumb" aria-hidden="true">${m.icon}</div>
+          <div class="name">${m.name}</div>
+          <div class="meta">
+            <span class="pill">Nguồn gốc: ${m.origin}</span>
+            <span class="pill">${fmtSpice(m.spice)}</span>
+          </div>
+          <div class="desc">${m.desc}</div>
+          <div class="pair">Gợi ý ăn kèm: ${m.pair}</div>
         `;
-        body.appendChild(row);
+        list.appendChild(el);
       });
-      document.getElementById('grand').textContent = fmt(sum);
     }
-    document.addEventListener('click', e=>{
-      const add = e.target.getAttribute('data-add');
-      const inc = e.target.getAttribute('data-inc');
-      const dec = e.target.getAttribute('data-dec');
-      const del = e.target.getAttribute('data-del');
-      if(add){ cart[add] = (cart[add]||0)+1; redrawCart(); }
-      if(inc){ cart[inc] = (cart[inc]||0)+1; redrawCart(); }
-      if(dec){ cart[dec] = Math.max(1,(cart[dec]||1)-1); redrawCart(); }
-      if(del){ delete cart[del]; redrawCart(); }
-    });
+    render(DATA);
 
-    // ====== Form hành vi ======
-    const methodSel = document.querySelector('select[name="method"]');
-    const addressField = document.getElementById('address-field');
-    methodSel.addEventListener('change', ()=>{
-      addressField.style.display = methodSel.value==='delivery' ? 'block' : 'none';
-    });
+    // ====== Tìm kiếm + Lọc ======
+    const q = document.getElementById('q');
+    const chips = [...document.querySelectorAll('.chip input')];
+    function applyFilter(){
+      const text = (q.value||'').toLowerCase().trim();
+      const tagsOn = chips.filter(c=>c.checked).map(c=>c.value);
+      const out = DATA.filter(item=>{
+        const hay = (item.name+' '+item.desc+' '+item.origin).toLowerCase();
+        const textOk = !text || hay.includes(text);
+        const tags = item.tags || [];
+        const tagsOk = tagsOn.every(t => tags.includes(t));
+        return textOk && tagsOk;
+      });
+      render(out);
+    }
+    q.addEventListener('input', applyFilter);
+    chips.forEach(c=>c.addEventListener('change', applyFilter));
 
-    // ====== Submit đơn: dùng mailto (phù hợp GitHub Pages) ======
-    document.getElementById('order-form').addEventListener('submit', (e)=>{
-      e.preventDefault();
-      const items = Object.entries(cart);
-      if(!items.length){ alert('Giỏ hàng đang trống. Hãy chọn món trước!'); return; }
-
-      const data = Object.fromEntries(new FormData(e.target).entries());
-      const total = items.reduce((s,[id,q])=>{
-        const it = CONFIG.menu.find(x=>x.id===id); return s+it.price*q;
-      },0);
-
-      const lines = items.map(([id,q])=>{
-        const it = CONFIG.menu.find(x=>x.id===id);
-        return `- ${it.name} × ${q} = ${fmt(it.price*q)}`;
-      }).join('%0D%0A');
-
-      const subject = encodeURIComponent(`[ĐƠN MỚI] ${data.name} - ${CONFIG.shopName}`);
-      const body =
-        `Khách hàng: ${data.name}%0D%0A`+
-        `SĐT: ${data.phone}%0D%0A`+
-        `Hình thức: ${data.method === 'delivery' ? 'GIAO TẬN NƠI' : 'ĐẾN LẤY'}%0D%0A`+
-        (data.method==='delivery' ? `Địa chỉ: ${data.address||''}%0D%0A` : '')+
-        `---%0D%0AĐơn hàng:%0D%0A${lines}%0D%0A`+
-        `Tổng cộng: ${fmt(total)}%0D%0A`+
-        (data.note ? `Ghi chú: ${encodeURIComponent(data.note)}%0D%0A` : '')+
-        `---%0D%0AĐơn gửi từ website: https://` + location.host;
-
-      // mở ứng dụng email để gửi đơn về shop
-      location.href = `mailto:${encodeURIComponent(CONFIG.email)}?subject=${subject}&body=${body}`;
-
-      // thông báo thân thiện
-      setTimeout(()=>alert('Đã mở ứng dụng Email để gửi đơn. Nếu bạn không dùng email, vui lòng gọi trực tiếp cửa hàng nhé!'), 400);
-    });
-
-    // Render lần đầu
-    redrawCart();
+    // Năm footer
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
