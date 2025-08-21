@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TH noodles – Bún Bò Huế</title>
+  <meta name="description" content="TH noodles - Bún bò Huế chuẩn vị. Đặt món online, giao nhanh." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --blue:#1f6feb;        /* xanh dương chủ đạo */
+      --blue-2:#0b3d91;      /* xanh đậm */
+      --bg:#0a0f1a;
+      --card:#111827;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --ok:#22c55e;
+      --warn:#f59e0b;
+      --danger:#ef4444;
+      --radius:16px;
+      --shadow:0 10px 30px rgba(0,0,0,.25);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:#0b1220;color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+    a{color:#9cc1ff;text-decoration:none}
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter:saturate(140%) blur(6px);
+      background:linear-gradient(180deg, rgba(10,15,26,.9), rgba(10,15,26,.6));
+      border-bottom:1px solid rgba(255,255,255,.06)
+    }
+    .container{max-width:1100px;margin:auto;padding:0 16px}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;gap:10px;align-items:center}
+    .logo{
+      width:42px;height:42px;border-radius:50%;
+      background:radial-gradient(120px 120px at 30% 30%, #61a0ff, #1f6feb 60%, #0b3d91);
+      box-shadow:0 0 0 3px rgba(255,255,255,.05), var(--shadow)
+    }
+    .brand h1{font-size:20px;margin:0;font-weight:800;letter-spacing:.4px}
+    .menu a{margin-left:18px;font-weight:600;opacity:.9}
+    .hero{
+      display:grid;grid-template-columns:1.2fr .8fr;gap:28px;
+      padding:40px 0 28px
+    }
+    .card{
+      background:linear-gradient(180deg,#0f172a,#0b1220);
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:var(--radius); box-shadow:var(--shadow)
+    }
+    .hero .left{padding:26px}
+    .title{font-size:38px;line-height:1.1;margin:0 0 10px}
+    .subtitle{color:var(--muted);margin:0 0 18px}
+    .badges{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 18px}
+    .badge{padding:8px 12px;border-radius:999px;background:#0b1a34;border:1px solid rgba(255,255,255,.08);font-size:13px}
+    .cta{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      appearance:none;border:0;cursor:pointer;font-weight:700;
+      padding:12px 18px;border-radius:12px
+    }
+    .btn.primary{background:linear-gradient(180deg,var(--blue),var(--blue-2));color:white;box-shadow:0 8px 18px rgba(31,111,235,.35)}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.12);color:var(--text)}
+    .hero .right{
+      display:grid;grid-template-rows:180px 1fr;gap:14px
+    }
+    .info, .open{
+      padding:16px 18px
+    }
+    .info h3,.open h3{margin:0 0 10px}
+    .row{display:flex;gap:10px;align-items:center;margin:6px 0;color:#c7d2fe}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    section{padding:26px 0}
+    h2{margin:0 0 12px;font-size:26px}
+    .items{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .item{background:linear-gradient(180deg,#0f172a,#0b1220);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:8px}
+    .item .name{font-weight:700}
+    .item .desc{color:var(--muted);font-size:14px}
+    .item .price{font-weight:800}
+    .item button{margin-top:auto}
+    .order{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+    .table{width:100%;border-collapse:collapse}
+    .table th,.table td{padding:10px;border-bottom:1px dashed rgba(255,255,255,.08);text-align:left}
+    .sum{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
+    .field{display:flex;flex-direction:column;gap:6px;margin:10px 0}
+    input,select,textarea{
+      background:#0b1220;border:1px solid rgba(255,255,255,.1);color:var(--text);
+      padding:12px;border-radius:10px;outline:none
+    }
+    footer{padding:24px 0;color:#9aa5b1}
+    .note{font-size:13px;color:var(--muted)}
+    @media (max-width:960px){
+      .hero{grid-template-columns:1fr}
+      .items{grid-template-columns:repeat(2,1fr)}
+      .order{grid-template-columns:1fr}
+    }
+    @media (max-width:640px){
+      .items{grid-template-columns:1fr}
+      .title{font-size:30px}
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <h1>TH noodles · Bún Bò Huế</h1>
+      </div>
+      <nav class="menu">
+        <a href="#menu">Thực đơn</a>
+        <a href="#order">Đặt món</a>
+        <a href="#contact">Liên hệ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="left card">
+        <h2 class="title">Bún Bò Huế chuẩn vị · nóng hổi mỗi ngày</h2>
+        <p class="subtitle">Nước dùng đậm đà, bò mềm – giò thơm. TH noodles phục vụ tại quán & giao tận nơi.</p>
+        <div class="badges">
+          <span class="badge">🌶️ Topping đa dạng</span>
+          <span class="badge">🕘 Mở cửa: 6:00 – 21:00</span>
+          <span class="badge">🚚 Giao nhanh trong 5km</span>
+        </div>
+        <div class="cta">
+          <a class="btn primary" href="#order">Đặt bún ngay</a>
+          <a class="btn ghost" href="#menu">Xem thực đơn</a>
+        </div>
+      </div>
+
+      <div class="right">
+        <div class="info card">
+          <h3>Giới thiệu quán</h3>
+          <div class="grid">
+            <div>
+              <div class="row">🏪 <strong>TH noodles</strong></div>
+              <div class="row">📍 <span id="cfg-address">45 Nguyễn Văn A, Q. Hải Châu, Đà Nẵng</span></div>
+              <div class="row">📞 <a id="cfg-phone-link" href="tel:0900000000"><span id="cfg-phone">0900 000 000</span></a></div>
+            </div>
+            <div>
+              <div class="row">✉️ <a id="cfg-email" href="mailto:orders@thnoodles.vn">orders@thnoodles.vn</a></div>
+              <div class="row">🌐 <a href="#">facebook.com/thnoodles</a></div>
+              <div class="row">🧾 Hóa đơn VAT (nếu cần)</div>
+            </div>
+          </div>
+        </div>
+        <div class="open card">
+          <h3>Giờ mở cửa</h3>
+          <div class="grid">
+            <div>
+              <div class="row">Thứ 2 – CN</div>
+              <div class="row">06:00 – 21:00</div>
+            </div>
+            <div>
+              <div class="row">Khu vực giao</div>
+              <div class="row">≤ 5km (phí từ 10k)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu -->
+    <section id="menu">
+      <h2>Thực đơn</h2>
+      <p class="note">Giá đã bao gồm rau sống & chanh ớt. Có thể chọn mức cay khi đặt.</p>
+      <div class="items" id="menu-list">
+        <!-- Items render bằng JS -->
+      </div>
+    </section>
+
+    <!-- Order -->
+    <section id="order">
+      <h2>Đặt món online</h2>
+      <div class="order">
+        <!-- Cart -->
+        <div class="card" style="padding:16px">
+          <h3>Giỏ hàng</h3>
+          <table class="table" id="cart-table">
+            <thead>
+              <tr><th>Món</th><th>Số lượng</th><th>Giá</th><th>Tạm tính</th><th></th></tr>
+            </thead>
+            <tbody id="cart-body">
+              <tr><td colspan="5" class="note">Chưa có món nào. Hãy chọn từ thực đơn.</td></tr>
+            </tbody>
+          </table>
+          <div class="sum">
+            <strong>Tổng cộng:</strong>
+            <strong id="grand">0₫</strong>
+          </div>
+        </div>
+
+        <!-- Info -->
+        <form class="card" id="order-form" style="padding:16px">
+          <h3>Thông tin người đặt</h3>
+          <div class="field">
+            <label>Họ tên *</label>
+            <input required name="name" placeholder="Nguyễn Văn B">
+          </div>
+          <div class="field">
+            <label>Số điện thoại *</label>
+            <input required name="phone" placeholder="090..." pattern="[0-9\s+]{8,13}">
+          </div>
+          <div class="field">
+            <label>Hình thức nhận *</label>
+            <select name="method" required>
+              <option value="pickup">Đến lấy tại quán</option>
+              <option value="delivery">Giao tận nơi</option>
+            </select>
+          </div>
+          <div class="field" id="address-field" style="display:none">
+            <label>Địa chỉ giao</label>
+            <input name="address" placeholder="Số nhà, đường, quận...">
+          </div>
+          <div class="field">
+            <label>Ghi chú thêm</label>
+            <textarea name="note" rows="3" placeholder="Ít cay / Không hành / Giao giờ nghỉ trưa ..."></textarea>
+          </div>
+          <button class="btn primary" type="submit">Gửi đơn đặt</button>
+          <div class="note" style="margin-top:8px">Sau khi gửi, cửa hàng sẽ gọi xác nhận đơn.</div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2>Liên hệ nhanh</h2>
+      <div class="grid">
+        <a class="btn ghost" href="tel:0900000000">📞 Gọi: 0900 000 000</a>
+        <a class="btn ghost" href="https://zalo.me/" target="_blank" rel="noopener">💬 Nhắn Zalo</a>
+        <a class="btn ghost" href="mailto:orders@thnoodles.vn">✉️ Email: orders@thnoodles.vn</a>
+        <a class="btn ghost" href="#menu">📋 Xem thực đơn</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> TH noodles · Made with 💙
+    </div>
+  </footer>
+
+  <script>
+    // ====== Cấu hình quán (thay cho đúng của bạn) ======
+    const CONFIG = {
+      shopName: "TH noodles",
+      phone: "0900 000 000",
+      email: "orders@thnoodles.vn",     // Email nhận đơn (dùng mailto)
+      address: "45 Nguyễn Văn A, Q. Hải Châu, Đà Nẵng",
+      menu: [
+        { id: "bbh-nho",  name: "Bún bò Huế (Tô nhỏ)",  desc:"Thịt bò nạm + chả",  price: 35000 },
+        { id: "bbh-vua",  name: "Bún bò Huế (Tô vừa)",  desc:"Bò nạm + chả + giò", price: 45000 },
+        { id: "bbh-dac",  name: "Bún bò Huế đặc biệt",   desc:"Bắp bò + giò heo",   price: 55000 },
+        { id: "cha",      name: "Chả Huế",               desc:"Chả lát thêm",       price: 10000 },
+        { id: "huyet",    name: "Huyết",                 desc:"Thêm topping",       price: 5000  },
+        { id: "tra-da",   name: "Trà đá",                desc:"Ly mát lạnh",        price: 3000  },
+      ]
+    };
+
+    // ====== Render thông tin ======
+    document.getElementById('cfg-address').textContent = CONFIG.address;
+    document.getElementById('cfg-phone').textContent   = CONFIG.phone;
+    document.getElementById('cfg-phone-link').href     = 'tel:' + CONFIG.phone.replace(/\s/g,'');
+    const emailEl = document.getElementById('cfg-email');
+    if(emailEl){ emailEl.textContent = CONFIG.email; emailEl.href = 'mailto:'+CONFIG.email; }
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ====== Render menu ======
+    const fmt = n => n.toLocaleString('vi-VN')+'₫';
+    const list = document.getElementById('menu-list');
+    CONFIG.menu.forEach(m=>{
+      const div = document.createElement('div');
+      div.className = 'item';
+      div.innerHTML = `
+        <div class="name">${m.name}</div>
+        <div class="desc">${m.desc}</div>
+        <div class="price">${fmt(m.price)}</div>
+        <button class="btn primary" data-add="${m.id}">+ Thêm</button>
+      `;
+      list.appendChild(div);
+    });
+
+    // ====== Giỏ hàng ======
+    const cart = {};
+    function redrawCart(){
+      const body = document.getElementById('cart-body');
+      body.innerHTML = '';
+      const entries = Object.entries(cart);
+      if(!entries.length){
+        body.innerHTML = '<tr><td colspan="5" class="note">Chưa có món nào. Hãy chọn từ thực đơn.</td></tr>';
+        document.getElementById('grand').textContent = fmt(0);
+        return;
+      }
+      let sum = 0;
+      entries.forEach(([id,qty])=>{
+        const item = CONFIG.menu.find(x=>x.id===id);
+        const row = document.createElement('tr');
+        const sub = item.price*qty; sum+=sub;
+        row.innerHTML = `
+          <td>${item.name}</td>
+          <td>
+            <button class="btn ghost" data-dec="${id}">–</button>
+            <span style="display:inline-block;min-width:26px;text-align:center">${qty}</span>
+            <button class="btn ghost" data-inc="${id}">+</button>
+          </td>
+          <td>${fmt(item.price)}</td>
+          <td>${fmt(sub)}</td>
+          <td><button class="btn ghost" data-del="${id}">✕</button></td>
+        `;
+        body.appendChild(row);
+      });
+      document.getElementById('grand').textContent = fmt(sum);
+    }
+    document.addEventListener('click', e=>{
+      const add = e.target.getAttribute('data-add');
+      const inc = e.target.getAttribute('data-inc');
+      const dec = e.target.getAttribute('data-dec');
+      const del = e.target.getAttribute('data-del');
+      if(add){ cart[add] = (cart[add]||0)+1; redrawCart(); }
+      if(inc){ cart[inc] = (cart[inc]||0)+1; redrawCart(); }
+      if(dec){ cart[dec] = Math.max(1,(cart[dec]||1)-1); redrawCart(); }
+      if(del){ delete cart[del]; redrawCart(); }
+    });
+
+    // ====== Form hành vi ======
+    const methodSel = document.querySelector('select[name="method"]');
+    const addressField = document.getElementById('address-field');
+    methodSel.addEventListener('change', ()=>{
+      addressField.style.display = methodSel.value==='delivery' ? 'block' : 'none';
+    });
+
+    // ====== Submit đơn: dùng mailto (phù hợp GitHub Pages) ======
+    document.getElementById('order-form').addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const items = Object.entries(cart);
+      if(!items.length){ alert('Giỏ hàng đang trống. Hãy chọn món trước!'); return; }
+
+      const data = Object.fromEntries(new FormData(e.target).entries());
+      const total = items.reduce((s,[id,q])=>{
+        const it = CONFIG.menu.find(x=>x.id===id); return s+it.price*q;
+      },0);
+
+      const lines = items.map(([id,q])=>{
+        const it = CONFIG.menu.find(x=>x.id===id);
+        return `- ${it.name} × ${q} = ${fmt(it.price*q)}`;
+      }).join('%0D%0A');
+
+      const subject = encodeURIComponent(`[ĐƠN MỚI] ${data.name} - ${CONFIG.shopName}`);
+      const body =
+        `Khách hàng: ${data.name}%0D%0A`+
+        `SĐT: ${data.phone}%0D%0A`+
+        `Hình thức: ${data.method === 'delivery' ? 'GIAO TẬN NƠI' : 'ĐẾN LẤY'}%0D%0A`+
+        (data.method==='delivery' ? `Địa chỉ: ${data.address||''}%0D%0A` : '')+
+        `---%0D%0AĐơn hàng:%0D%0A${lines}%0D%0A`+
+        `Tổng cộng: ${fmt(total)}%0D%0A`+
+        (data.note ? `Ghi chú: ${encodeURIComponent(data.note)}%0D%0A` : '')+
+        `---%0D%0AĐơn gửi từ website: https://` + location.host;
+
+      // mở ứng dụng email để gửi đơn về shop
+      location.href = `mailto:${encodeURIComponent(CONFIG.email)}?subject=${subject}&body=${body}`;
+
+      // thông báo thân thiện
+      setTimeout(()=>alert('Đã mở ứng dụng Email để gửi đơn. Nếu bạn không dùng email, vui lòng gọi trực tiếp cửa hàng nhé!'), 400);
+    });
+
+    // Render lần đầu
+    redrawCart();
+  </script>
+</body>
+</html>
